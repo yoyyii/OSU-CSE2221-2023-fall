@@ -19,7 +19,7 @@ public final class AppendUndoController1 implements AppendUndoController {
     /**
      * View object.
      */
-    private final AppendUndoModel view;
+    private final AppendUndoView view;
 
     /**
      * Updates view to display model.
@@ -30,7 +30,7 @@ public final class AppendUndoController1 implements AppendUndoController {
      *            the view
      */
     private static void updateViewToMatchModel(AppendUndoModel model,
-            AppendUndoModel view) {
+            AppendUndoView view) {
         /*
          * Get model info
          */
@@ -55,7 +55,7 @@ public final class AppendUndoController1 implements AppendUndoController {
 
         output.transferFrom(temp);
 
-        view.updateOutputDisplay(output);
+        view.updateOutputDisplay(str);
     }
 
     /**
@@ -66,7 +66,7 @@ public final class AppendUndoController1 implements AppendUndoController {
      * @param view
      *            view to connect to
      */
-    public AppendUndoController1(AppendUndoModel model, AppendUndoModel view) {
+    public AppendUndoController1(AppendUndoModel model, AppendUndoView view) {
         this.model = model;
         this.view = view;
         /*
