@@ -1,0 +1,9 @@
+language
+a set of strings of characters, 
+each of which has meaning
+
+word
+a string of characters in a language, which has at least one character
+
+test
+testcase
