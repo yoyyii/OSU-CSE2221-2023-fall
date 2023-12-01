@@ -40,7 +40,7 @@ public final class AppendUndoView1 extends JFrame implements AppendUndoView {
     /**
      * Buttons.
      */
-    private final JButton resetButton, copyButton;
+    private final JButton resetButton, appendButton, undoButton;
 
     /**
      * No-argument constructor.
@@ -64,7 +64,8 @@ public final class AppendUndoView1 extends JFrame implements AppendUndoView {
         this.outputText = new JTextArea("", LINES_IN_TEXT_AREAS,
                 LINE_LENGTHS_IN_TEXT_AREAS);
         this.resetButton = new JButton("Reset");
-        this.copyButton = new JButton("Copy Input");
+        this.appendButton = new JButton("Append");
+        this.undoButton = new JButton("Undo");
         /*
          * Text areas should wrap lines, and outputText should be read-only
          */
@@ -90,7 +91,8 @@ public final class AppendUndoView1 extends JFrame implements AppendUndoView {
          * bottom
          */
         buttonPanel.add(this.resetButton);
-        buttonPanel.add(this.copyButton);
+        buttonPanel.add(this.appendButton);
+        buttonPanel.add(this.undoButton);
         /*
          * Organize main window using grid layout
          */
@@ -109,7 +111,8 @@ public final class AppendUndoView1 extends JFrame implements AppendUndoView {
          * Register this object as the observer for all GUI events
          */
         this.resetButton.addActionListener(this);
-        this.copyButton.addActionListener(this);
+        this.appendButton.addActionListener(this);
+        this.undoButton.addActionListener(this);
 
         // Start the main application window --------------------------------
 
@@ -186,6 +189,21 @@ public final class AppendUndoView1 extends JFrame implements AppendUndoView {
          * of the method body)
          */
         this.setCursor(Cursor.getDefaultCursor());
+    }
+
+    @Override
+    /**
+     * Updates display of whether undo operation is allowed.
+     *
+     * @param allowed
+     *            true iff undo is allowed
+     */
+    public void updateUndoAllowed(boolean allowed) {
+        if (allowed) {
+            this.undoButton.setEnabled(true);
+        } else {
+            this.undoButton.setEnabled(false);
+        }
     }
 
 }
